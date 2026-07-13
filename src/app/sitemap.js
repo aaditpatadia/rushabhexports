@@ -1,7 +1,7 @@
 import { products } from "@/lib/products";
 
 export default function sitemap() {
-  const base = "https://rushabhenterprise.com";
+  const base = "https://rushabhexports.com";
   const staticRoutes = ["", "/products", "/about", "/quality", "/export-logistics", "/contact"].map((path) => ({
     url: `${base}${path}`,
     lastModified: new Date(),

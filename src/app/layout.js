@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata = {
-  metadataBase: new URL("https://rushabhenterprise.com"),
+  metadataBase: new URL("https://rushabhexports.com"),
   title: {
     default: "Rushabh Enterprise: Precision Lubrication & Fastening Components, Rajkot, India",
     template: "%s | Rushabh Enterprise",
@@ -24,7 +24,7 @@ export const metadata = {
     title: "Rushabh Enterprise: Precision Lubrication & Fastening Components",
     description:
       "Precision-engineered lubrication and fastening components from Rajkot, India. Metric, BSP and NPT: one manufacturer, every standard.",
-    url: "https://rushabhenterprise.com",
+    url: "https://rushabhexports.com",
     siteName: "Rushabh Enterprise",
     locale: "en_US",
     type: "website",

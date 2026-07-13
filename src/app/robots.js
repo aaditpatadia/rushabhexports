@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://rushabhenterprise.com/sitemap.xml",
+    sitemap: "https://rushabhexports.com/sitemap.xml",
   };
 }
