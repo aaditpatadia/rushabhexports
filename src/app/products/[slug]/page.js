@@ -87,11 +87,15 @@ export default async function ProductPage({ params }) {
                   <p className="mt-1.5 text-sm leading-relaxed text-forest/75">{product.application}</p>
                 </div>
                 {product.materialStory && (
-                  <div className="mt-5 rounded-2xl bg-forest p-6 text-sand">
+                  <div className="mt-5 space-y-3 rounded-2xl bg-forest p-6 text-sand">
                     <p className="text-xs font-semibold uppercase tracking-wider text-clay">
                       {product.materialStory.heading}
                     </p>
-                    <p className="mt-2 text-sm leading-relaxed text-sand/85">{product.materialStory.body}</p>
+                    {product.materialStory.body.map((para, i) => (
+                      <p key={i} className="text-sm leading-relaxed text-sand/85">
+                        {para}
+                      </p>
+                    ))}
                   </div>
                 )}
               </div>

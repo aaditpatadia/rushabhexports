@@ -71,13 +71,13 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 border-y border-rust/30">
-          <div className="container-wide grid grid-cols-2 gap-8 py-10 sm:grid-cols-4">
+          <div className="container-wide grid grid-cols-2 gap-6 py-5 sm:grid-cols-4">
             {stats.map((s) => (
-              <div key={s.label} className="flex items-center gap-3">
-                <s.icon className="h-8 w-8 flex-shrink-0 text-rust" />
+              <div key={s.label} className="flex items-center gap-2.5">
+                <s.icon className="h-6 w-6 flex-shrink-0 text-rust" />
                 <div>
-                  <p className="font-display text-2xl font-semibold text-sand sm:text-3xl">{s.value}</p>
-                  <p className="mt-0.5 text-xs text-sand/70 sm:text-sm">{s.label}</p>
+                  <p className="font-display text-lg font-semibold text-sand sm:text-xl">{s.value}</p>
+                  <p className="text-xs text-sand/70">{s.label}</p>
                 </div>
               </div>
             ))}
@@ -89,13 +89,13 @@ export default function Home() {
       {flagshipProduct && (
         <section className="bg-sand-light py-20 md:py-28">
           <div className="container-re grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-square overflow-hidden rounded-3xl bg-white">
+            <div className="relative mx-auto aspect-square w-full max-w-[280px] overflow-hidden rounded-3xl bg-white sm:max-w-xs">
               <Image
                 src={getCoverImage(flagshipProduct)}
                 alt={flagshipProduct.name}
                 fill
-                className="object-contain p-12"
-                sizes="(min-width: 1024px) 50vw, 90vw"
+                className="object-contain p-8"
+                sizes="280px"
               />
             </div>
             <div>
@@ -105,13 +105,15 @@ export default function Home() {
               </h2>
               <p className="mt-3 text-sm font-medium text-clay">{flagshipProduct.tagline}</p>
               {flagshipProduct.materialStory && (
-                <div className="mt-6 rounded-2xl bg-forest p-7 text-sand">
+                <div className="mt-6 space-y-3 rounded-2xl bg-forest p-7 text-sand">
                   <p className="text-xs font-semibold uppercase tracking-wider text-clay">
                     {flagshipProduct.materialStory.heading}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-sand/85">
-                    {flagshipProduct.materialStory.body}
-                  </p>
+                  {flagshipProduct.materialStory.body.map((para, i) => (
+                    <p key={i} className="text-sm leading-relaxed text-sand/85">
+                      {para}
+                    </p>
+                  ))}
                 </div>
               )}
               <Link

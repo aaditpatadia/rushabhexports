@@ -191,8 +191,11 @@ export const products = [
       "Rushabh's highest-volume, most-trusted product line. A precision-moulded PVC cap that seals over the grease nipple between service intervals, keeping dirt, dust, and moisture out of the ball-check seat and extending the working life of every fitting it protects. Moulded with an integrated pull-tab for fast, tool-free removal.",
     materialStory: {
       heading: "Why we build it in PVC",
-      body:
-        "We standardised this cap on PVC (polyvinyl chloride) rather than natural rubber for reasons that matter to a buyer running thousands of these in the field. PVC resists oil, grease, and a wide range of industrial chemicals without swelling or perishing, so the cap does not degrade from contact with the very lubricant it is protecting. It holds its colour and flexibility across long outdoor exposure, where natural rubber compounds tend to crack and stiffen with age and UV exposure. It moulds to a tighter, more consistent tolerance at high volume, which matters when a loose cap that falls off in transit defeats the purpose entirely. And it lets us hold a high-visibility red finish permanently, so a missing cap is obvious on inspection, not something a technician has to guess at. The result is a component that costs less to manufacture at scale without giving up sealing performance, which is why it has become our flagship line.",
+      body: [
+        "We standardised this cap on PVC (polyvinyl chloride) rather than natural rubber, for reasons that matter to a buyer running thousands of these in the field.",
+        "PVC resists oil, grease, and a wide range of industrial chemicals without swelling or perishing, so the cap does not degrade from contact with the very lubricant it protects. It also holds its colour and flexibility across long outdoor exposure, where natural rubber tends to crack and stiffen with age and UV.",
+        "It moulds to a tighter, more consistent tolerance at high volume, and holds a high-visibility red finish permanently, so a missing cap is obvious on inspection. The result costs less to manufacture at scale without giving up sealing performance, which is why it has become our flagship line.",
+      ],
     },
     industries: [
       { name: "Automotive", use: "Protecting chassis and driveline nipples during transit and storage before a vehicle reaches its dealer or fleet." },
