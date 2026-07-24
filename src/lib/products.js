@@ -185,9 +185,15 @@ export const products = [
   {
     slug: "grease-nipple-caps",
     name: "Grease Nipple Caps",
-    tagline: "Contamination protection for every nipple in the range.",
+    flagship: true,
+    tagline: "Our flagship product: engineered PVC protection for every nipple in the range.",
     intro:
-      "A flexible protective cap that seals over the grease nipple between service intervals, keeping dirt, dust, and moisture out of the ball-check seat and extending the working life of the fitting. Moulded with an integrated pull-tab for fast, tool-free removal.",
+      "Rushabh's highest-volume, most-trusted product line. A precision-moulded PVC cap that seals over the grease nipple between service intervals, keeping dirt, dust, and moisture out of the ball-check seat and extending the working life of every fitting it protects. Moulded with an integrated pull-tab for fast, tool-free removal.",
+    materialStory: {
+      heading: "Why we build it in PVC",
+      body:
+        "We standardised this cap on PVC (polyvinyl chloride) rather than natural rubber for reasons that matter to a buyer running thousands of these in the field. PVC resists oil, grease, and a wide range of industrial chemicals without swelling or perishing, so the cap does not degrade from contact with the very lubricant it is protecting. It holds its colour and flexibility across long outdoor exposure, where natural rubber compounds tend to crack and stiffen with age and UV exposure. It moulds to a tighter, more consistent tolerance at high volume, which matters when a loose cap that falls off in transit defeats the purpose entirely. And it lets us hold a high-visibility red finish permanently, so a missing cap is obvious on inspection, not something a technician has to guess at. The result is a component that costs less to manufacture at scale without giving up sealing performance, which is why it has become our flagship line.",
+    },
     industries: [
       { name: "Automotive", use: "Protecting chassis and driveline nipples during transit and storage before a vehicle reaches its dealer or fleet." },
       { name: "Oil & Gas", use: "Shielding valve and flange-mounted lubrication points on refinery and pipeline equipment." },
@@ -198,10 +204,10 @@ export const products = [
     ],
     variants: [
       {
-        key: "rubber-cap",
-        name: "Rubber Cap",
+        key: "pvc-cap",
+        name: "PVC Cap",
         angle: "N/A",
-        desc: "Flexible push-fit seal with an integrated pull-tab for fast, one-handed removal. Easy to fit and remove at frequent service points without tools.",
+        desc: "Precision-moulded PVC push-fit seal with an integrated pull-tab for fast, one-handed removal. Easy to fit and remove at frequent service points without tools, and built to outlast rubber in oil, grease, and UV exposure.",
       },
     ],
     images: [
@@ -217,16 +223,20 @@ export const products = [
       { standard: "BSP (BS 1486)", sizes: "1/8\", 1/4\"" },
       { standard: "NPT (SAE J534)", sizes: "1/8\", 1/4\"" },
     ],
-    materials: ["Industrial Rubber"],
-    finishes: ["Natural", "Red (high-visibility)"],
+    materials: ["PVC (Polyvinyl Chloride)"],
+    finishes: ["Red (high-visibility)", "Natural"],
     spec: {
       workingPressure: "N/A. Protective component only.",
-      temperatureRange: "-20°C to +100°C",
+      temperatureRange: "-15°C to +70°C",
       sealingType: "Push-fit compression seal",
     },
     application:
-      "Fitted over grease nipples in maintenance-heavy environments to prevent contamination ingress during storage, transit, and between lubrication cycles. High-visibility red finish makes a missing cap immediately obvious during inspection.",
-    ordering: { moq: "1,000 units per SKU", pack: "100 pcs polybag / 1,000 pcs carton", leadTime: "21 working days from confirmed PO" },
+      "Fitted over grease nipples in maintenance-heavy environments to prevent contamination ingress during storage, transit, and between lubrication cycles. High-visibility red PVC finish makes a missing cap immediately obvious during inspection.",
+    ordering: {
+      moq: "8,000 units per SKU (1 master carton)",
+      pack: "100 pcs polybag / 400 pcs box / 8,000 pcs master carton",
+      leadTime: "21 working days from confirmed PO",
+    },
     precisionNote:
       "Each cap is moulded to a consistent internal bore so it seats securely across its full thread-size range. A loose cap that falls off in transit defeats the purpose entirely.",
   },

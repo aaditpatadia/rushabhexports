@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import GreaseNippleExplorer from "@/components/GreaseNippleExplorer";
 import ProductGallery from "@/components/ProductGallery";
 import { products, getProduct, getCoverImage } from "@/lib/products";
+import FlagshipBadge from "@/components/FlagshipBadge";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -39,9 +40,12 @@ export default async function ProductPage({ params }) {
             <Link href="/products" className="text-xs font-semibold uppercase tracking-[0.2em] text-clay hover:text-rust">
               &larr; All Products
             </Link>
-            <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight text-sand sm:text-5xl">
-              {product.name}
-            </h1>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <h1 className="font-display text-4xl font-semibold tracking-tight text-sand sm:text-5xl">
+                {product.name}
+              </h1>
+              {product.flagship && <FlagshipBadge />}
+            </div>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-sand/75">{product.intro}</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {product.industries.map((ind) => (
@@ -82,6 +86,14 @@ export default async function ProductPage({ params }) {
                   <p className="text-xs font-semibold uppercase tracking-wider text-rust">Application</p>
                   <p className="mt-1.5 text-sm leading-relaxed text-forest/75">{product.application}</p>
                 </div>
+                {product.materialStory && (
+                  <div className="mt-5 rounded-2xl bg-forest p-6 text-sand">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-clay">
+                      {product.materialStory.heading}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-sand/85">{product.materialStory.body}</p>
+                  </div>
+                )}
               </div>
             </div>
           )}

@@ -2,6 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { products, getCoverImage } from "@/lib/products";
 import { GearIcon, ShieldIcon, CalendarIcon, DocumentCheckIcon } from "@/components/StatIcons";
+import FlagshipBadge from "@/components/FlagshipBadge";
+
+const flagshipProduct = products.find((p) => p.flagship);
+const rangeProducts = [...products].sort((a, b) => (b.flagship ? 1 : 0) - (a.flagship ? 1 : 0));
 
 const stats = [
   { value: "7+", label: "Product Lines", icon: GearIcon },
@@ -81,6 +85,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FLAGSHIP SPOTLIGHT */}
+      {flagshipProduct && (
+        <section className="bg-sand-light py-20 md:py-28">
+          <div className="container-re grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="relative aspect-square overflow-hidden rounded-3xl bg-white">
+              <Image
+                src={getCoverImage(flagshipProduct)}
+                alt={flagshipProduct.name}
+                fill
+                className="object-contain p-12"
+                sizes="(min-width: 1024px) 50vw, 90vw"
+              />
+            </div>
+            <div>
+              <FlagshipBadge />
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-forest sm:text-4xl">
+                {flagshipProduct.name}
+              </h2>
+              <p className="mt-3 text-sm font-medium text-clay">{flagshipProduct.tagline}</p>
+              {flagshipProduct.materialStory && (
+                <div className="mt-6 rounded-2xl bg-forest p-7 text-sand">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-clay">
+                    {flagshipProduct.materialStory.heading}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-sand/85">
+                    {flagshipProduct.materialStory.body}
+                  </p>
+                </div>
+              )}
+              <Link
+                href={`/products/${flagshipProduct.slug}`}
+                className="mt-6 inline-block text-sm font-semibold text-rust hover:text-rust-dark"
+              >
+                View full specifications &rarr;
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* PRODUCT RANGE */}
       <section className="bg-paper py-20 md:py-28">
         <div className="container-re">
@@ -100,14 +144,21 @@ export default function Home() {
           </div>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((p) => (
+            {rangeProducts.map((p) => (
               <Link
                 key={p.slug}
                 href={`/products/${p.slug}`}
-                className="group rounded-2xl border border-clay/15 bg-sand-light/60 p-6 transition-colors hover:border-rust/40 hover:bg-sand-light"
+                className={`group rounded-2xl border p-6 transition-colors ${
+                  p.flagship
+                    ? "border-rust/50 bg-sand-light hover:border-rust"
+                    : "border-clay/15 bg-sand-light/60 hover:border-rust/40 hover:bg-sand-light"
+                }`}
               >
-                <div className="relative h-20 w-20 overflow-hidden rounded-lg bg-white">
-                  <Image src={getCoverImage(p)} alt={p.name} fill className="object-contain p-2" sizes="80px" />
+                <div className="flex items-start justify-between gap-2">
+                  <div className="relative h-20 w-20 overflow-hidden rounded-lg bg-white">
+                    <Image src={getCoverImage(p)} alt={p.name} fill className="object-contain p-2" sizes="80px" />
+                  </div>
+                  {p.flagship && <FlagshipBadge />}
                 </div>
                 <h3 className="mt-4 font-display text-base font-semibold text-forest">{p.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-forest/65">{p.tagline}</p>

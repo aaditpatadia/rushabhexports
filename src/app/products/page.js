@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { products, getCoverImage } from "@/lib/products";
+import FlagshipBadge from "@/components/FlagshipBadge";
+
+const sortedProducts = [...products].sort((a, b) => (b.flagship ? 1 : 0) - (a.flagship ? 1 : 0));
 
 export const metadata = {
   title: "Products",
@@ -29,14 +32,21 @@ export default function ProductsPage() {
 
       <section className="bg-paper py-16 md:py-20">
         <div className="container-re grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((p) => (
+          {sortedProducts.map((p) => (
             <Link
               key={p.slug}
               href={`/products/${p.slug}`}
-              className="group flex flex-col rounded-2xl border border-clay/15 bg-sand-light/60 p-7 transition-colors hover:border-rust/40 hover:bg-sand-light"
+              className={`group flex flex-col rounded-2xl border p-7 transition-colors ${
+                p.flagship
+                  ? "border-rust/50 bg-sand-light hover:border-rust"
+                  : "border-clay/15 bg-sand-light/60 hover:border-rust/40 hover:bg-sand-light"
+              }`}
             >
-              <div className="relative h-28 w-28 overflow-hidden rounded-xl bg-white">
-                <Image src={getCoverImage(p)} alt={p.name} fill className="object-contain p-3" sizes="112px" />
+              <div className="flex items-start justify-between gap-3">
+                <div className="relative h-28 w-28 overflow-hidden rounded-xl bg-white">
+                  <Image src={getCoverImage(p)} alt={p.name} fill className="object-contain p-3" sizes="112px" />
+                </div>
+                {p.flagship && <FlagshipBadge />}
               </div>
               <h2 className="mt-5 font-display text-lg font-semibold text-forest">{p.name}</h2>
               <p className="mt-2 text-sm leading-relaxed text-forest/65">{p.tagline}</p>
