@@ -3,6 +3,7 @@ import Image from "next/image";
 import { products, getCoverImage } from "@/lib/products";
 import { GearIcon, ShieldIcon, CalendarIcon, DocumentCheckIcon } from "@/components/StatIcons";
 import FlagshipBadge from "@/components/FlagshipBadge";
+import HeroVideo from "@/components/HeroVideo";
 
 const flagshipProduct = products.find((p) => p.flagship);
 const rangeProducts = [...products].sort((a, b) => (b.flagship ? 1 : 0) - (a.flagship ? 1 : 0));
@@ -59,16 +60,7 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-forest text-sand">
-        <div className="relative h-[70vh] min-h-[420px] max-h-[820px] w-full">
-          <Image
-            src="/hero/export-warehouse.png"
-            alt="Rushabh Enterprise export warehouse: precision, quality, reliability worldwide"
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-        </div>
+        <HeroVideo />
 
         <div className="relative z-10 border-y border-rust/30">
           <div className="container-wide grid grid-cols-2 gap-6 py-5 sm:grid-cols-4">
