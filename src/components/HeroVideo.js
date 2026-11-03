@@ -44,7 +44,8 @@ export default function HeroVideo() {
   }
 
   return (
-    <div className="relative w-full bg-forest-dark">
+    <div className="w-full bg-[#0f0b08]">
+      <div className="relative mx-auto w-full md:w-[min(100%,calc((100svh_-_5rem)*16/9))]">
       <video
         ref={videoRef}
         className="block aspect-video w-full object-contain"
@@ -78,6 +79,7 @@ export default function HeroVideo() {
           </svg>
         )}
       </button>
+      </div>
     </div>
   );
 }
