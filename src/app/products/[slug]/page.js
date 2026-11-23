@@ -46,24 +46,9 @@ export default async function ProductPage({ params }) {
   const guide = getGuide(slug);
   const base = "https://rushabhexports.com";
 
+  // No Product schema: Google's Product snippets require a price, review or
+  // rating, and these are quote-only B2B items, so it would be flagged invalid.
   const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      name: product.name,
-      description: guide ? guide.summary : product.intro,
-      image: `${base}${heroImage}`,
-      url: `${base}/products/${product.slug}`,
-      category: "Industrial lubrication and fastening components",
-      material: product.materials.join(", "),
-      brand: { "@type": "Brand", name: "Rushabh Enterprise" },
-      manufacturer: {
-        "@type": "Organization",
-        name: "Rushabh Enterprise",
-        url: base,
-        address: { "@type": "PostalAddress", addressLocality: "Rajkot", addressRegion: "Gujarat", addressCountry: "IN" },
-      },
-    },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
