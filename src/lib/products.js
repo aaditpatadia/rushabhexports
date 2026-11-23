@@ -26,7 +26,7 @@ export const products = [
       { name: "Automotive", use: "Chassis pivots, suspension joints, and driveline U-joints on assembly and aftermarket service lines." },
       { name: "Construction", use: "Excavator bucket pins, boom joints, and articulation points exposed to dust and vibration." },
       { name: "Agriculture", use: "Tractor and implement pivot points serviced in the field, often with basic tooling." },
-      { name: "Mining", use: "High-cycle lubrication points on crushers and conveyors, where BSP fittings dominate." },
+      { name: "Mining", use: "High-cycle lubrication points on crushers, conveyors and haul equipment." },
       { name: "Marine", use: "Deck machinery and winch pivots, typically specified in stainless steel for corrosion resistance." },
       { name: "General Machinery", use: "Bearing housings and slideways across manufacturing and processing equipment." },
     ],
@@ -116,9 +116,9 @@ export const products = [
         name: "Button Head",
         angle: "0°",
         desc:
-          "A low-profile, broad-head fitting for recessed mounting positions where a standard ball head would be exposed to impact.",
+          "A broad, flat-headed fitting used on heavy-duty equipment for high-volume greasing. It requires a matching button-head coupler on the grease gun.",
         application:
-          "Designed for easy-access lubrication points. The button head allows quick and secure greasing in confined or frequently serviced areas.",
+          "Designed for frequently serviced, heavy-duty lubrication points. The broad head gives a secure connection with a matching button-head coupler.",
         images: ["/products/grease-nipples/button-head/1.png", "/products/grease-nipples/button-head/2-sheet.png", "/products/grease-nipples/button-head/spec-sheet.png"],
         threadSizes: GN_SHARED_THREADS,
         dimensionNote: "Full dimensional drawing available on request from our export desk.",
@@ -134,7 +134,7 @@ export const products = [
         name: "Flush Type",
         angle: "0°",
         desc:
-          "The ball seats fully within a countersunk recess, sitting flush with the mounting face for maximum protection against impact and debris.",
+          "The ball seats within a countersunk recess, sitting level with the mounting face for protection against impact and snagging. It requires a matching flush-type coupler.",
         application:
           "Used in applications where a low-profile lubrication point is required. The flush design prevents snagging and damage, ideal for smooth surfaces and tight clearances.",
         images: ["/products/grease-nipples/flush/1.png", "/products/grease-nipples/flush/2-sheet.png", "/products/grease-nipples/flush/spec-sheet.png"],
@@ -180,7 +180,7 @@ export const products = [
       sealingType: GN_SHARED_SPEC.sealingType,
     },
     application:
-      "Lubrication of joint bearings, pivot pins, and chassis fittings across automotive, construction, and agricultural equipment. Compatible with all standard grease gun couplers.",
+      "Lubrication of joint bearings, pivot pins, and chassis fittings across automotive, construction, and agricultural equipment. Straight, 45 degree and 90 degree types work with standard grease gun couplers. Button head and flush types need matching couplers.",
   },
   {
     slug: "grease-nipple-caps",
@@ -188,13 +188,13 @@ export const products = [
     flagship: true,
     tagline: "Our flagship product: engineered PVC protection for every nipple in the range.",
     intro:
-      "Rushabh's highest-volume, most-trusted product line. A precision-moulded PVC cap that seals over the grease nipple between service intervals, keeping dirt, dust, and moisture out of the ball-check seat and extending the working life of every fitting it protects. Moulded with an integrated pull-tab for fast, tool-free removal.",
+      "Rushabh's highest-volume, most-trusted product line. A precision-moulded PVC cap that seals over the grease nipple between service intervals, keeping dirt, dust, and moisture out of the ball-check seat and extending the working life of every fitting it protects. Moulded with a tether strap and ring end so the cap stays with the fitting.",
     materialStory: {
       heading: "Why we build it in PVC",
       body: [
         "We standardised this cap on PVC (polyvinyl chloride) rather than natural rubber, for reasons that matter to a buyer running thousands of these in the field.",
-        "PVC resists oil, grease, and a wide range of industrial chemicals without swelling or perishing, so the cap does not degrade from contact with the very lubricant it protects. It also holds its colour and flexibility across long outdoor exposure, where natural rubber tends to crack and stiffen with age and UV.",
-        "It moulds to a tighter, more consistent tolerance at high volume, and holds a high-visibility red finish permanently, so a missing cap is obvious on inspection. The result costs less to manufacture at scale without giving up sealing performance, which is why it has become our flagship line.",
+        "PVC has good resistance to many greases, oils, and common industrial chemicals, so the cap copes with contact from the very lubricant it protects. Natural rubber, by comparison, has poor resistance to petroleum oils and ages quickly in sunlight and ozone. PVC also keeps its shape and colour well outdoors, though no plastic cap lasts forever and every cap should be inspected at each service.",
+        "It moulds to a consistent size in high volume and takes a bright, high-visibility red finish, so a missing cap is obvious on inspection. The result costs less to manufacture at scale without giving up sealing performance, which is why it has become our flagship line.",
       ],
     },
     industries: [
@@ -210,7 +210,7 @@ export const products = [
         key: "pvc-cap",
         name: "PVC Cap",
         angle: "N/A",
-        desc: "Precision-moulded PVC push-fit seal with an integrated pull-tab for fast, one-handed removal. Easy to fit and remove at frequent service points without tools, and built to outlast rubber in oil, grease, and UV exposure.",
+        desc: "Precision-moulded PVC push-fit cap with a tether strap and ring end, so it stays with the fitting. Easy to fit and remove at frequent service points without tools, and suited to oil, grease, and outdoor exposure.",
       },
     ],
     images: [
@@ -246,9 +246,9 @@ export const products = [
   {
     slug: "oil-cups",
     name: "Oil Cups",
-    tagline: "Metered oil delivery for machinery lubrication points.",
+    tagline: "Gravity-fed oil reservoirs for machinery lubrication points.",
     intro:
-      "Steel oil cups for lubrication points that run on oil rather than grease. A sealed reservoir with a positive-closing lid keeps the fill clean between top-ups and gives a maintenance technician an immediate visual check of oil presence.",
+      "Steel oil cups for lubrication points that run on oil rather than grease. A small reservoir with a hinged lid holds a supply of oil above the bearing and lets it feed down by gravity, while the lid keeps dust out between top-ups.",
     industries: [
       { name: "General Machinery", use: "Bearing and slideway lubrication points on production equipment run on a scheduled top-up cycle." },
       { name: "Textile Machinery", use: "High-speed spindle and roller bearings that need frequent, small oil additions." },
@@ -259,7 +259,7 @@ export const products = [
         key: "screw-type",
         name: "Screw Type",
         angle: "N/A",
-        desc: "Positive-closing lid on a threaded body, sealing the reservoir against dust and splash between fills. Engraved for easy identification on a busy panel of fittings.",
+        desc: "Hinged-lid steel cup on a threaded stem, covering the reservoir against dust and splash between fills and feeding oil to the bearing by gravity.",
       },
     ],
     images: ["/products/oil-cups/1.png", "/products/oil-cups/2-sheet.png"],
@@ -272,13 +272,13 @@ export const products = [
     spec: {
       workingPressure: "Gravity-fed, non-pressurised",
       temperatureRange: "-10°C to +90°C",
-      sealingType: "Hinged lid closure with positive latch",
+      sealingType: "Hinged lid closure",
     },
     application:
       "Machinery lubrication points where oil, rather than grease, is the specified lubricant. Used on bearings, slideways, and gearcases on production and processing equipment.",
     ordering: { moq: "500 units per SKU", pack: "50 pcs polybag / 500 pcs carton", leadTime: "21 working days from confirmed PO" },
     precisionNote:
-      "The lid latch is set to stay closed under vibration but open with one hand, so a technician on a moving line can top up without losing rhythm.",
+      "The hinged lid has a pull loop so it opens easily with one hand for top-ups, and closes over the cup to keep dust out.",
   },
   {
     slug: "grease-cups",
@@ -290,7 +290,7 @@ export const products = [
       { name: "Mining", use: "Manually serviced bearing points on crushers and screens where automated lines aren't run." },
       { name: "Construction", use: "Heavy equipment pivot and bearing points serviced on a fixed maintenance schedule." },
       { name: "Textile Machinery", use: "Loom and spindle bearing points serviced by hand on a fixed rotation." },
-      { name: "Marine", use: "Deck winch and wire-rope bearing points on marine equipment, greased manually during rounds." },
+      { name: "Marine", use: "Winch and deck machinery bearing points greased by hand during maintenance rounds." },
       { name: "Heavy Machinery", use: "Legacy equipment designed around manual grease cups rather than nipple-and-gun servicing." },
     ],
     variants: [
@@ -298,7 +298,7 @@ export const products = [
         key: "screw-type",
         name: "Screw Type",
         angle: "N/A",
-        desc: "Knurled cap threaded onto the body, advanced by hand to feed a metered, repeatable charge of grease into the bearing on each turn.",
+        desc: "Knurled cap threaded onto the body. Turning it down by hand pushes grease out of the cup and into the bearing, in an amount controlled by how far the cap is turned.",
       },
     ],
     images: [
@@ -323,25 +323,25 @@ export const products = [
       "Wear-heavy lubrication points on mining and heavy construction equipment where manual, on-demand grease delivery is preferred over cartridge or nipple systems.",
     ordering: { moq: "500 units per SKU", pack: "50 pcs polybag / 500 pcs carton", leadTime: "21 working days from confirmed PO" },
     precisionNote:
-      "Thread engagement is held tight enough that the cap advances smoothly under hand pressure without cross-threading. That is a common failure point in lower-cost cast alternatives.",
+      "Thread engagement is machined so the cap advances smoothly under hand pressure without cross-threading.",
   },
   {
     slug: "oil-level-indicators",
     name: "Aluminium Oil Level Indicators",
-    tagline: "Leak-proof visibility into every gearbox and reservoir.",
+    tagline: "Clear sight of the oil level in every gearbox and reservoir.",
     intro:
-      "A cast hex-body oil level indicator with a clear sight window and a red float dot, giving a single-glance visual check of reservoir level on gearboxes and machinery housings. No dipstick and no shutdown required.",
+      "A hex-body aluminium oil level indicator with a clear sight window and a red centre marker, giving a single-glance visual check of oil level on gearboxes and machinery housings. No dipstick and no shutdown required.",
     industries: [
       { name: "Gearboxes", use: "Direct-mount level monitoring on industrial gearboxes without needing to stop and dipstick-check." },
       { name: "Industrial Machinery", use: "Reservoir and sump level checks on production equipment during routine walkarounds." },
-      { name: "Marine", use: "Engine and gearbox oil level monitoring in marine drivetrains, specified with corrosion-resistant sealing." },
+      { name: "Marine", use: "Gearbox and drive housing oil level monitoring on vessels, where light weight matters." },
     ],
     variants: [
       {
         key: "standard-sight-glass",
         name: "Standard Sight Glass",
         angle: "N/A",
-        desc: "Hex-body indicator with a five-window sight glass and red centre float, gasket-sealed against leaks at the mounting face and around the window.",
+        desc: "Hex-body indicator with a sight glass window and red centre marker, O-ring sealed against leaks at the mounting face.",
       },
     ],
     images: ["/products/oil-level-indicators/1.png", "/products/oil-level-indicators/2-sheet.png"],
@@ -354,13 +354,13 @@ export const products = [
     spec: {
       workingPressure: "Low-pressure reservoir mounting",
       temperatureRange: "-20°C to +110°C",
-      sealingType: "Gasket-sealed, leak-proof",
+      sealingType: "O-ring sealed",
     },
     application:
       "Direct visual monitoring of oil levels in gearboxes and machinery housings, reducing the need for dipstick checks and unplanned downtime from undetected low-oil conditions.",
     ordering: { moq: "250 units per SKU", pack: "25 pcs polybag / 250 pcs carton", leadTime: "21 working days from confirmed PO" },
     precisionNote:
-      "The O-ring seal at the window and mounting face is fitted to hold under sustained oil contact and temperature cycling. A leaking indicator is worse than no indicator at all.",
+      "The O-ring at the mounting face is fitted to hold under sustained oil contact and temperature cycling. A leaking indicator is worse than no indicator at all.",
   },
   {
     slug: "nylon-knobs",
@@ -381,7 +381,7 @@ export const products = [
         key: "industrial-nylon-knob",
         name: "Industrial Nylon Knob",
         angle: "N/A",
-        desc: "Moulded reinforced nylon knob on a full-length metal threaded shank, designed for manual clamping, tightening, and adjustment with a firm, ergonomic grip.",
+        desc: "Moulded reinforced nylon star knob with an internal threaded insert that screws onto a stud or bolt, designed for manual clamping, tightening, and adjustment with a firm, ergonomic grip.",
       },
     ],
     images: [
@@ -411,11 +411,11 @@ export const products = [
     intro:
       "Solid copper rivets manufactured to consistent head and shank tolerances for applications demanding electrical conductivity, corrosion resistance, or a non-sparking fastening solution.",
     industries: [
-      { name: "Aerospace & Aviation", use: "Fuselage panel and structural fastening where consistent head profile matters." },
+      { name: "Aerospace & Aviation", use: "Specialist, non-structural fastening where a copper rivet is called for in the drawing or specification." },
       { name: "Marine & Shipbuilding", use: "Deck fittings, winches, and hardware exposed to saltwater environments." },
       { name: "Electrical Industry", use: "Busbar and bonding joints where consistent conductivity matters as much as mechanical strength." },
-      { name: "Automotive", use: "Brake lining and clutch facing rivets, and other friction-joint applications." },
-      { name: "Railways", use: "Rolling stock body panels and undercarriage fastening." },
+      { name: "Automotive", use: "Brake lining and clutch facing rivets, which are commonly made from soft non-ferrous metals." },
+      { name: "Railways", use: "Electrical bonding and non-structural fastening where copper is specified." },
       { name: "Industrial Machinery", use: "Equipment housings and panel fastening in general fabrication." },
       { name: "Leather Goods", use: "Decorative and structural rivets on bags, belts, and leather hardware." },
       { name: "Architecture & Construction", use: "Copper roofing, cladding, and architectural sheet metal fastening." },
@@ -425,7 +425,7 @@ export const products = [
         key: "round-head",
         name: "Round Head",
         angle: "N/A",
-        desc: "Standard domed head for general-purpose fastening. The most widely specified copper rivet profile across electrical and fabrication use.",
+        desc: "Solid copper rivet with a round, flat-topped head and a plain shank, for general-purpose fastening across electrical, leather and fabrication use.",
       },
     ],
     images: [

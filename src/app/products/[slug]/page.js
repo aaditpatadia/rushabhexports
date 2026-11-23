@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import GreaseNippleExplorer from "@/components/GreaseNippleExplorer";
 import ProductGallery from "@/components/ProductGallery";
+import ProductGuide, { PointsOfUse } from "@/components/ProductGuide";
 import { products, getProduct, getCoverImage } from "@/lib/products";
+import { getGuide } from "@/lib/productGuides";
 import FlagshipBadge from "@/components/FlagshipBadge";
 
 export function generateStaticParams() {
@@ -14,11 +16,22 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return {};
+  const guide = getGuide(slug);
+  const description = guide
+    ? `${guide.summary} Manufactured in Rajkot, India and exported worldwide.`
+    : `${product.intro} Manufactured in Rajkot, India.`;
   return {
-    title: product.name,
-    description: `${product.intro} Manufactured in Rajkot, India. ${product.threadOptions
-      .map((t) => t.standard)
-      .join(", ")}.`,
+    title: guide?.seoTitle ?? product.name,
+    description,
+    keywords: guide?.keywords,
+    alternates: { canonical: `/products/${slug}` },
+    openGraph: {
+      title: guide?.seoTitle ?? product.name,
+      description,
+      url: `/products/${slug}`,
+      type: "website",
+      images: [{ url: getCoverImage(product), alt: product.name }],
+    },
   };
 }
 
@@ -30,9 +43,55 @@ export default async function ProductPage({ params }) {
   const isGreaseNipple = product.slug === "grease-nipples";
   const heroImage = getCoverImage(product);
   const related = products.filter((p) => p.slug !== product.slug).slice(0, 3);
+  const guide = getGuide(slug);
+  const base = "https://rushabhexports.com";
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: product.name,
+      description: guide ? guide.summary : product.intro,
+      image: `${base}${heroImage}`,
+      url: `${base}/products/${product.slug}`,
+      category: "Industrial lubrication and fastening components",
+      material: product.materials.join(", "),
+      brand: { "@type": "Brand", name: "Rushabh Enterprise" },
+      manufacturer: {
+        "@type": "Organization",
+        name: "Rushabh Enterprise",
+        url: base,
+        address: { "@type": "PostalAddress", addressLocality: "Rajkot", addressRegion: "Gujarat", addressCountry: "IN" },
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: base },
+        { "@type": "ListItem", position: 2, name: "Products", item: `${base}/products` },
+        { "@type": "ListItem", position: 3, name: product.name, item: `${base}/products/${product.slug}` },
+      ],
+    },
+  ];
+  if (guide?.faqs?.length) {
+    jsonLd.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: guide.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* HERO */}
       <section className="bg-forest py-16 text-sand md:py-20">
         <div className="container-re grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
@@ -196,8 +255,11 @@ export default async function ProductPage({ params }) {
               </div>
             ))}
           </div>
+          <PointsOfUse guide={guide} />
         </div>
       </section>
+
+      <ProductGuide guide={guide} productName={product.name} />
 
       {/* ORDERING */}
       <section className="bg-forest py-16 text-sand md:py-20">
